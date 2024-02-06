@@ -88,22 +88,27 @@ const AllTable = ({actions, type, columns, items, onRefresh}) => {
 
     const renderRow = (info) => {
         return (
-            <TableRow key={info._id} sx={{ cursor: 'pointer', backgroundColor:"white", '&:hover': {backgroundColor: '#f5f5f5'}, }}>
+            <TableRow key={info._id} sx={{ cursor: 'pointer', backgroundColor: "white", '&:hover': { backgroundColor: '#f5f5f5' } }}>
                 {columns.map(column => (
-                    <TableCell key={column.id} align="center" sx={content}>
-                        {/* {column.id === 'actions' ? renderActions(info) : (info[column.id] ? info[column.id].toString() : '')} */}
-                        {column.id === 'collected' ? 
-                        (info['collected'] ? <CheckCircleIcon sx={{color: "#12B76A"}} /> : <CancelIcon sx={{color: "#FF2222"}} />)
-                        : column.id === 'actions' ? renderActions(info)
-                        : column.id === 'status' ?
-                        (info['status'] === 'Active' ?  <Typography sx={activeContent}>{info[column.id]}</Typography> : <Typography sx={inActiveContent}>{info[column.id]}</Typography> )
-                        : (info[column.id] ? info[column.id].toString() : '')
-                    }
+                    <TableCell 
+                        key={column.id} 
+                        align="center" 
+                        sx={{
+                            ...content,
+                            ...(column.id === 'status' && info.status === 'Completed'  && { color: "#12B76A" }), 
+                            ...(column.id === 'status' && info.status === 'Charging' && { color: "#12B76A" }), 
+                            ...(column.id === 'status' && info.status === 'Idle' && { color: "#12B76A" }),
+                            ...(column.id === 'status' && info.status === 'Busy' && { color: "#FF2222" }),
+                        }}
+                    >
+                        {info[column.id]}
                     </TableCell>
                 ))}
             </TableRow>
         );
     };
+    
+    
     
 
     const renderActions = (info) => {

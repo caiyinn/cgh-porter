@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Tabs, Tab, Typography, Paper, Container } from '@mui/material';
 import Dashboard from '../Dashboard';
+import Adhoc from '../../adhoc/Adhoc';
 
 
 const ToggleTab = () => {
@@ -23,7 +24,7 @@ const ToggleTab = () => {
                 <Tab value="Adhoc" label="Adhoc" />
             </Tabs>
             {value === "Dashboard" && <Dashboard />}
-            {value === "Adhoc" && <h1>Adhoc</h1>}
+            {value === "Adhoc" && <Adhoc />}
         </Box>
      );
 }
