@@ -136,7 +136,7 @@ const Adhoc = () => {
 
     return (
         <div style={{ display: "flex", overflow: "hidden", backgroundColor: "#F7F7F7" }}>
-            <Container sx={{ overflowY: 'auto', flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: "center", my: 4, ml: 4, maxWidth: "100%" }}>
+            <Container sx={{ overflowY: 'auto', flexGrow: 1, display: 'flex', flexDirection: 'column',overflowX: "hidden", alignItems: "center", my: 4, ml: 4, maxWidth: "100%" }}>
                 <Paper elevation={5} sx={{ p: 3, width: "100%", maxWidth: "100%" }}>
                     <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', mb: 2 }}>
                         <img src={autoveLogo} alt="Autove Logo" width="40" />
