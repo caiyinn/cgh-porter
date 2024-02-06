@@ -136,9 +136,9 @@ const Adhoc = () => {
 
     return (
         <div style={{ display: "flex", overflow: "hidden", backgroundColor: "#F7F7F7" }}>
-            <Container sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: "center", my: 4,ml:4, maxWidth: "100%" }}>
+            <Container sx={{ overflowY: 'auto', flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: "center", my: 4, ml: 4, maxWidth: "100%" }}>
                 <Paper elevation={5} sx={{ p: 3, width: "100%", maxWidth: "100%" }}>
-                    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', mb: 3 }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', mb: 2 }}>
                         <img src={autoveLogo} alt="Autove Logo" width="40" />
                         <Typography variant="h5" sx={{ ml: 2, fontFamily: "Poppins", fontWeight: "600" }}>
                             Autove Robotics
@@ -147,7 +147,7 @@ const Adhoc = () => {
                     <Typography variant="h6" sx={{ fontFamily: "Poppins", fontWeight: "600", mb: 1 }}>
                         Create Job
                     </Typography>
-                    <Typography variant="body2" sx={{ fontFamily: "Poppins", fontWeight: "400", mb: 5 }}>
+                    <Typography variant="body2" sx={{ fontFamily: "Poppins", fontWeight: "400", mb: 3 }}>
                         Please help to fill in the blanks regarding Job details!
                     </Typography>
                     <form onSubmit={onSubmit}>
