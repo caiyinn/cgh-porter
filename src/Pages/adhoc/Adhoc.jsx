@@ -135,9 +135,9 @@ const Adhoc = () => {
     };
 
     return (
-        <div style={{ display: "flex", overflow: "hidden", backgroundColor: "#F7F7F7" }}>
+        <div style={{ display: "flex", overflow: "hidden", backgroundColor: "#F7F7F7", width:"100%", height: "100%" }}>
             <Container sx={{ overflowY: 'auto', flexGrow: 1, display: 'flex', flexDirection: 'column',overflowX: "hidden", alignItems: "center", my: 4, ml: 4, maxWidth: "100%" }}>
-                <Paper elevation={5} sx={{ p: 3, width: "100%", maxWidth: "100%" }}>
+                <Paper elevation={5} sx={{ p: 3, width: "100%", maxWidth: "95%", marginTop:'3px', borderRadius:"10px" }}>
                     <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', mb: 2 }}>
                         <img src={autoveLogo} alt="Autove Logo" width="40" />
                         <Typography variant="h5" sx={{ ml: 2, fontFamily: "Poppins", fontWeight: "600" }}>
@@ -166,7 +166,7 @@ const Adhoc = () => {
                     </form>
                 </Paper>
             </Container>
-            <Container sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', my: 4, maxWidth: "100%", ml:1 }}>
+            <Container sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', my: 4, maxWidth: "100%", ml:1, marginBottm:"10px" }}>
                 {/* Assuming AllTable is adjusted to fit within this layout */}
                 <AllTable columns={columns} items={dummyRobots} />
             </Container>
