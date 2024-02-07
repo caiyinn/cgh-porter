@@ -18,11 +18,11 @@ const Dashboard = () => {
     ];
 
     const dummyRobots = [
-        { robotId: 'R001', name: 'Alpha', battery: '85%', status: 'Idle' },
-        { robotId: 'R002', name: 'Bravo', battery: '90%', status: 'Busy' },
-        { robotId: 'R003', name: 'Charlie', battery: '78%', status: 'Idle' },
-        { robotId: 'R004', name: 'Delta', battery: '62%', status: 'Charging' },
-        { robotId: 'R005', name: 'Echo', battery: '100%', status: 'Idle' },
+        { robotId: 'R001', name: 'Flashbot', battery: '85%', status: 'Offline' },
+        { robotId: 'R002', name: 'Flashbot', battery: '90%', status: 'Offline' },
+        { robotId: 'R003', name: 'Flashbot', battery: '78%', status: 'Offline' },
+        { robotId: 'R004', name: 'Flashbot', battery: '62%', status: 'Offline' },
+        { robotId: 'R005', name: 'Flashbot', battery: '100%', status: 'Offline' },
     ];
 
     const columnJobs = [
@@ -38,14 +38,14 @@ const Dashboard = () => {
 
     const dummyJobs = [
         {
-            jobNumber: 'J001',
+            jobNumber: 'J003',
             robotId: 'Flashbot',
-            jobType: 'Call Job',
-            from: 'ChargeCGH',
-            to: 'Pharmacy',
-            status: 'Completed',
-            createdTime: '2023-02-01 10:00',
-            completedTime: '2023-02-01 10:03',
+            jobType: 'Charging Job',
+            from: 'FeverExt',
+            to: 'ChargeCGH',
+            status: 'Charging',
+            createdTime: '2023-02-01 12:00',
+            completedTime: '2023-02-01 12:00',
         },
         {
             jobNumber: 'J002',
@@ -58,14 +58,14 @@ const Dashboard = () => {
             completedTime: '2023-02-01 10:08',
         },
         {
-            jobNumber: 'J003',
+            jobNumber: 'J001',
             robotId: 'Flashbot',
-            jobType: 'Charging Job',
-            from: 'FeverExt',
-            to: 'ChargeCGH',
-            status: 'Charging',
-            createdTime: '2023-02-01 12:00',
-            completedTime: '2023-02-01 12:00',
+            jobType: 'Call Job',
+            from: 'ChargeCGH',
+            to: 'Pharmacy',
+            status: 'Completed',
+            createdTime: '2023-02-01 10:00',
+            completedTime: '2023-02-01 10:03',
         },
     ];
     

@@ -99,6 +99,7 @@ const AllTable = ({actions, type, columns, items, onRefresh}) => {
                             ...(column.id === 'status' && info.status === 'Charging' && { color: "#12B76A" }), 
                             ...(column.id === 'status' && info.status === 'Idle' && { color: "#12B76A" }),
                             ...(column.id === 'status' && info.status === 'Busy' && { color: "#FF2222" }),
+                            ...(column.id === 'status' && info.status === 'Offline' && { color: "#FF2222" }),
                         }}
                     >
                         {info[column.id]}

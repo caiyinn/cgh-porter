@@ -44,11 +44,11 @@ const Adhoc = () => {
     ];
 
     const dummyRobots = [
-        { robotId: 'R001', name: 'Alpha', battery: '85%', status: 'Idle', jobQueued: 0 },
-        { robotId: 'R002', name: 'Bravo', battery: '90%', status: 'Busy' , jobQueued: 1 },
-        { robotId: 'R003', name: 'Charlie', battery: '78%', status: 'Idle' , jobQueued: 0 },
-        { robotId: 'R004', name: 'Delta', battery: '62%', status: 'Charging' , jobQueued: 0 },
-        { robotId: 'R005', name: 'Echo', battery: '100%', status: 'Idle' , jobQueued: 0 },
+        { robotId: 'R001', name: 'Flashbot', battery: '85%', status: 'Offline', jobQueued: 0 },
+        { robotId: 'R002', name: 'Flashbot', battery: '90%', status: 'Offline' , jobQueued: 0 },
+        { robotId: 'R003', name: 'Flashbot', battery: '78%', status: 'Offline' , jobQueued: 0 },
+        { robotId: 'R004', name: 'Flashbot', battery: '62%', status: 'Offline' , jobQueued: 0 },
+        { robotId: 'R005', name: 'Flashbot', battery: '100%', status: 'Offline' , jobQueued: 0 },
     ];
     
     const robots = ['Any Robot', 'Flashbot', 'PuduBot2', 'Swiftbot', 'CC1'];
