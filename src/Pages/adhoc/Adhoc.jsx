@@ -44,11 +44,11 @@ const Adhoc = () => {
     ];
 
     const dummyRobots = [
-        { robotId: 'R001', name: 'Flashbot', battery: '85%', status: 'Offline', jobQueued: 0 },
-        { robotId: 'R002', name: 'Flashbot', battery: '90%', status: 'Offline' , jobQueued: 0 },
-        { robotId: 'R003', name: 'Flashbot', battery: '78%', status: 'Offline' , jobQueued: 0 },
-        { robotId: 'R004', name: 'Flashbot', battery: '62%', status: 'Offline' , jobQueued: 0 },
-        { robotId: 'R005', name: 'Flashbot', battery: '100%', status: 'Offline' , jobQueued: 0 },
+        { robotId: 'R001', name: 'Alpha', battery: '85%', status: 'Idle', jobQueued: 0 },
+        { robotId: 'R002', name: 'Bravo', battery: '90%', status: 'Busy' , jobQueued: 1 },
+        { robotId: 'R003', name: 'Charlie', battery: '78%', status: 'Idle' , jobQueued: 0 },
+        { robotId: 'R004', name: 'Delta', battery: '62%', status: 'Charging' , jobQueued: 0 },
+        { robotId: 'R005', name: 'Echo', battery: '100%', status: 'Idle' , jobQueued: 0 },
     ];
     
     const robots = ['Any Robot', 'Flashbot', 'PuduBot2', 'Swiftbot', 'CC1'];
@@ -58,8 +58,8 @@ const Adhoc = () => {
         robotType: "Any Robot",
         pickupLocation: "",
         deliveryLocation: "",
-        date: "",
-        time: "",
+        pickUpDate: "",
+        pickUpTime: "",
         pickupNow: false,
         closestRobot: true,
     });
@@ -80,6 +80,13 @@ const Adhoc = () => {
                 closestRobot: false
             }));
         }
+        else if ((name === "pickUpDate" && value !== new Date().toISOString().split('T')[0]) || (name === "pickUpTime" && value !== new Date().toTimeString().split(' ')[0].substring(0, 5))){
+            setForm(prevForm => ({
+                ...prevForm,
+                pickupNow: false,
+                [name]: value
+            }));
+        }
         else{
             setForm(prevForm => ({
                 ...prevForm,
@@ -87,6 +94,15 @@ const Adhoc = () => {
             }));
         }
     };
+    // const handleChanges = (e) => {
+    //     const { name, value } = e.target;
+    //     console.log(`Changing ${name} to ${value}`); // Debugging line
+    //     setForm(prevForm => ({
+    //         ...prevForm,
+    //         [name]: value
+    //     }));
+    // };
+    
 
     const handleSwitchChange = (e) => {
         const name = e.target.name;
@@ -99,15 +115,15 @@ const Adhoc = () => {
         if (name === "pickupNow" && checked) {
             setForm(prevForm => ({
                 ...prevForm,
-                date: new Date().toISOString().split('T')[0], // Sets current date
-                time: new Date().toTimeString().split(' ')[0].substring(0, 5), // Sets current time
+                pickUpDate: new Date().toISOString().split('T')[0], // Sets current date
+                pickUpTime: new Date().toTimeString().split(' ')[0].substring(0, 5), // Sets current time
             }));
         }
         else if (name === "pickupNow" && !checked) {
             setForm(prevForm => ({
                 ...prevForm,
-                date: "",
-                time: "",
+                pickUpDate: "",
+                pickUpTime: "",
             }));
         }
         else if (name === "closestRobot" && checked) {
@@ -152,13 +168,13 @@ const Adhoc = () => {
                     </Typography>
                     <form onSubmit={onSubmit}>
                         <Grid container spacing={2}>
-                            <RenderDropdown label="Robot Type" name="robotType" value={form.robotType} options={robots} handleChange={handleChanges} />
-                            <RenderDropdown label="Pick Up Location" name="pickupLocation" value={form.pickupLocation} options={locations} handleChange={handleChanges} />
-                            <RenderDropdown label="Delivery Location" name="deliveryLocation" value={form.deliveryLocation} options={locations} handleChange={handleChanges} />
-                            <RenderTextField label="Date" type="date" name="date" value={form.date} handleChange={handleChanges} />
-                            <RenderTextField label="Pick Up Time" type="time" name="time" value={form.time} handleChange={handleChanges} />
-                            <RenderSwitch label="Pick Up Now" checked={form.pickupNow} name="pickupNow" onChange={handleSwitchChange} />
-                            <RenderSwitch label="Choose Closest Available Robot" checked={form.closestRobot} name="closestRobot" onChange={handleSwitchChange} />
+                            <RenderDropdown label="Robot Type" id="robotType" name="robotType" value={form.robotType} options={robots} handleChange={handleChanges} />
+                            <RenderDropdown label="Pick Up Location" id="pickupLocation" name="pickupLocation" value={form.pickupLocation} options={locations} handleChange={handleChanges} />
+                            <RenderDropdown label="Delivery Location" id="deliveryLocation" name="deliveryLocation" value={form.deliveryLocation} options={locations} handleChange={handleChanges} />
+                            <RenderTextField label="Date" type="date" id={"pickUpDate"} name="pickUpDate" value={form.pickUpDate} handleChange={handleChanges} />
+                            <RenderTextField label="Pick Up Time" type="time" id={"pickUpTime"} name="pickUpTime" value={form.pickUpTime} handleChange={handleChanges} />
+                            <RenderSwitch label="Pick Up Now" id="pickupNow" checked={form.pickupNow} name="pickupNow" onChange={handleSwitchChange} />
+                            <RenderSwitch label="Choose Closest Available Robot" id="closestRobot" checked={form.closestRobot} name="closestRobot" onChange={handleSwitchChange} />
                             <Button type="submit" variant="contained" sx={{ mt: 3, backgroundColor: "#378FFE", '&:hover': { backgroundColor: "#3474eb" }, width: "40%", mx:2 }}>
                                 Create Job
                             </Button>
